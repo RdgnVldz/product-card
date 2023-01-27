@@ -23,14 +23,14 @@
     
     .container {
         background-color: hsl(30, 38%, 92%);
-        height: 100vh;
-        width: 100%;
+        min-height: 100vh;
     }
     .card {
         background-color:white;
         width: 500px;
         height:375px;
         position: fixed;
+        border-radius: 10px;
         top: 50%;
         left: 50%;
         -webkit-transform: translate(-50%, -50%);
@@ -46,8 +46,8 @@
         width: 50%;
         
     }
-    .row .product-image img#mobile{
-        display:none;
+    .row .product-image picture img, .row .product-image picture source{
+        border-radius: 10px 0 0 10px;
     }
     
     .row .product-text{
@@ -61,7 +61,7 @@
         font-size:10px;
         letter-spacing: 5px;
     } 
-    .product-title h2{
+    .product-title h1{
         padding : 10px 0;
         color: hsl(212, 21%, 14%);
         font-family: 'Fraunces';
@@ -103,23 +103,23 @@
         border-radius: 6px;
         color: white;
         font-weight: 500;
-        font-family: 'Fraunces';
+        font-family: 'Fraunces'
         font-size:12px;
     }
-    .add-to-cart button: hover, .add-to-cart button:focus{
+    .add-to-cart button:hover, .add-to-cart button:focus{
         background-color: hsl(212, 21%, 14%);
+        cursor:pointer;
     }
     .add-to-cart button img{
         height:13px;
         margin-right:10px;
     }
     @media screen and (max-width:375px){
-        .card {
-            background-color:white;  
+        .card {  
             border-radius:10px;      
             width: 330px;
             height:570px;
-            position: fixed;
+            position: flexbox;
             top: 50%;
             left: 50%;
             -webkit-transform: translate(-50%, -50%);
@@ -134,41 +134,32 @@
         .row .product-image{
             width: 100%;
         }
-        .row .product-image img#mobile{
-            border-radius: 10px 10px 0 0;
-            display:block;
-        }
-        .row .product-image img#desktop{
-            display:none;
-        }
+    .row .product-image picture img, .row .product-image picture source{
+        border-radius: 10px 10px  0 0;
+    }
          .add-to-cart button{
-            border:none;
-            width:100%;
             height: 45px;
-            background-color: hsl(158, 36%, 37%);
-            border-radius: 6px;
-            color: white;
-            font-weight: 500;
-            font-family: 'Fraunces';
             font-size:13px;
         }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <main class="container">
       <div class="card">
           <div class="row">
               <div class="product-image">
-                  <img id="desktop" width="250px" src="./images/image-product-desktop.jpg"  alt="" />
-                  <img id="mobile" width="100%" src="./images/image-product-mobile.jpg" alt="">
+              		<picture>
+              			<source media="(max-width: 375px)" srcset="./images/image-product-mobile.jpg" width="100%">
+              			<img src="./images/image-product-desktop.jpg" width="250px" alt="{your alt text goes here}">
+              		</picture>
               </div>
               <div class="product-text">
                   <div class="product-preview">
                       <p>Perfume</p>
                   </div>
                   <div class="product-title">
-                      <h2>Gabrielle Essence Eau De Parfum</h2>
+                      <h1>Gabrielle Essence Eau De Parfum</h1>
                   </div>
                   <div class="product-desc">
                       <p>A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.</p>
@@ -178,17 +169,17 @@
                       <p class="original">$169.99</p>
                   </div>
                   <div class="add-to-cart">
-                      <button type="submit"> <img src = "./images/icon-cart.svg" alt="My Happy SVG"/> Add to Cart</button>
+                      <button type="submit"><img src = "./images/icon-cart.svg" alt="cart icon"/> Add to Cart</button>
                   </div>
               </div>
           </div>
       </div>
-  </div>
+  </main>
   
-<!--   
-  <div class="attribution">
+  
+  <!-- <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a> -->
-  </div>
+    Coded by <a href="#">Your Name Here</a>
+  </footer> -->
 </body>
 </html>
